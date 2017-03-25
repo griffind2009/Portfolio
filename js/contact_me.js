@@ -21,7 +21,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "./mail/contact_me.php",
+                url: "././mail/contact_me.php",
                 type: "POST",
                 data: {
                     name: name,
@@ -29,6 +29,9 @@ $(function() {
                     email: email,
                     message: message
                 },
+                // dataType: "jsonp",
+                // jsonp : "callback",
+                // jsonpCallback: "jsonpcallback"
                 cache: false,
                 success: function() {
                     // Enable button & show success message
@@ -54,6 +57,12 @@ $(function() {
                     //clear all fields
                     $('#contactForm').trigger("reset");
                 },
+                // function jsonpcallback(rtndata) {
+                //
+                //     var myid = "#"+rtndata.id;
+                //     $(myid).feedback(rtndata.message, {duration: 4000, above: true});
+                // }
+
             });
         },
         filter: function() {
